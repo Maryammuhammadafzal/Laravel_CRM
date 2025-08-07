@@ -46,7 +46,7 @@ class CustomerController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:customers,email,' . $customer->id,
             'phone' => 'nullable|string|max:20',
-            'address' => 'nullable|string',,
+            'address' => 'nullable|string',
         ]);
 
         $customer->update($validated);
