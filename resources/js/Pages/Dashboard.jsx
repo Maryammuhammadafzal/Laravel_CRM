@@ -2,6 +2,8 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
 import Index from './Customers/Index';
 
+
+
 export default function Dashboard() {
     return (
         <AuthenticatedLayout

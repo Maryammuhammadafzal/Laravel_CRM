@@ -1,16 +1,20 @@
 import { useState, ReactNode } from 'react';
-import { Link, usePage } from '@inertiajs/react';
+import { Link } from '@inertiajs/react';
+import { route } from 'ziggy-js';
 import { User, PageProps } from '@/types';
 import { Button } from '@/components/ui/button';
 
-// interface Props extends PageProps {
-//   user: User;
-//   header?: ReactNode;
-//   children: ReactNode;
-// }
+interface Props extends PageProps {
+  user: User;
+  header?: ReactNode;
+  children: ReactNode;
+}
 
-export default function AuthenticatedLayout({ user, header, children }) {
+export default function AuthenticatedLayout({ user, header, children }: Props) {
   const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
+
+  // Debug route function
+  console.log('Route function:', route('profile.edit'));
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -38,7 +42,12 @@ export default function AuthenticatedLayout({ user, header, children }) {
                     <Link href={route('profile.edit')} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
                       Profile
                     </Link>
-                    <Link href={route('logout')} method="post" as="button" className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                    <Link
+                      href={route('logout')}
+                      method="post"
+                      as="button"
+                      className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                    >
                       Log Out
                     </Link>
                   </div>
